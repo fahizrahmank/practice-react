@@ -7,14 +7,13 @@ import data from "../data";
 const Accordian = () => {
   const [selected, setSelected] = useState(null);
   const [enableMultiSelection, setEnableMultiSelection] = useState(false);
+  //for store multile id s
   const [multiple, setMultiple] = useState([]);
   const handleSingleSelection = (getCurrentId) => {
     console.log(getCurrentId);
     setSelected(getCurrentId === selected ? null : getCurrentId);
   };
-  const handleMultiSeection = (getCurrentId) => {
-
-  }
+  const handleMultiSeection = (getCurrentId) => {};
 
   return (
     <div className="wrapper">
@@ -32,7 +31,11 @@ const Accordian = () => {
               style={{ backgroundColor: "yellowgreen", fontWeight: "bolder" }}
             >
               <div
-                onClick={() => handleSingleSelection(item.id)}
+                onClick={
+                  enableMultiSelection
+                    ? () => handleMultiSeection(item.id)
+                    : () => handleSingleSelection(item.id)
+                }
                 className="title"
               >
                 <h3> {item.name}</h3>
