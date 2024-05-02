@@ -13,7 +13,14 @@ const Accordian = () => {
     console.log(getCurrentId);
     setSelected(getCurrentId === selected ? null : getCurrentId);
   };
-  const handleMultiSeection = (getCurrentId) => {};
+  const handleMultiSelection = (getCurrentId) => {
+    let copyMultiple = [...multiple];
+    const findIndexOfCurrentId = copyMultiple.indexOf(getCurrentId);
+    if (findIndexOfCurrentId === -1) copyMultiple.push(getCurrentId);
+    else copyMultiple.splice(findIndexOfCurrentId, 1);
+    setMultiple(copyMultiple);
+    console.log(findIndexOfCurrentId, multiple);
+  };
 
   return (
     <div className="wrapper">
@@ -33,7 +40,7 @@ const Accordian = () => {
               <div
                 onClick={
                   enableMultiSelection
-                    ? () => handleMultiSeection(item.id)
+                    ? () => handleMultiSelection(item.id)
                     : () => handleSingleSelection(item.id)
                 }
                 className="title"
@@ -41,7 +48,7 @@ const Accordian = () => {
                 <h3> {item.name}</h3>
                 <span>+</span>
               </div>
-              {selected == item.id ? (
+              {selected == item.id || multiple.indexOf(item.id) !== -1 ? (
                 <div className="content">
                   {" "}
                   {item.email} <br /> {item.phone}
