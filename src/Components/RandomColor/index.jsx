@@ -4,7 +4,9 @@ const index = () => {
   const [typeOfColor, setTypeOfColor] = useState("hex");
   const [color, setColor] = useState("#000000");
 
-  const handleCreateRandomHexColor = () => {};
+  const handleCreateRandomHexColor = () => {
+    const hex = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F']
+  };
 
   const handleCreateRandomRGBColor = () => {};
 
