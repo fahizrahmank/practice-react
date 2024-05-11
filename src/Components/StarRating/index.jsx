@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
-const starRating = ({ noOfStar = 5 }) => {
+const StarRating = ({ noOfStars = 5 }) => {
   const [rating, setRaing] = useState(0);
   const [hover, setHover] = useState(0);
   function handleClick(getCurrentIndex) {
@@ -16,8 +16,8 @@ const starRating = ({ noOfStar = 5 }) => {
 
   }
   return (
-    <div className="star-aing">
-      {[...Array(noOfStar)].map((_, index) => {
+    <div className="star-raing">
+      {[...Array(noOfStars)].map((_, index) => {
         index += 1;
         return (
           <FaStar
@@ -25,7 +25,7 @@ const starRating = ({ noOfStar = 5 }) => {
             onClick={() => handleClick(index)}
             onMouseMove={() => handleMouseEnter(index)}
             onMouseLeave={() => handleMouseLeave(index)}
-            size={40}
+            size={90}
           />
         );
       })}
@@ -33,4 +33,4 @@ const starRating = ({ noOfStar = 5 }) => {
   );
 };
 
-export default starRating;
+export default StarRating;
