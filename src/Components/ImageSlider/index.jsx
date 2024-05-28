@@ -42,7 +42,7 @@ const ImageSlider = ({ url, limit = 5, page = 1 }) => {
     );
   }
 
-  return <div className="container">
+  return <div className="mnain-container">
     <BsArrowLeftCircleFill className="arrow arrow-Left"/>
   </div>;
 };
