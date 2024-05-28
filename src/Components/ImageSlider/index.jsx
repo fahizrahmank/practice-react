@@ -37,7 +37,7 @@ const ImageSlider = ({ url, limit = 5, page = 1 }) => {
   if (errorMsg !== null) {
     return (
       <div>
-        <h1>Error occurred: {errorMsg}</h1>
+        <h1>Error occurred: find error ?{errorMsg}</h1>
       </div>
     );
   }
